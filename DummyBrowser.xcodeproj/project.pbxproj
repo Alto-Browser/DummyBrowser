@@ -6,8 +6,28 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		C4CC95872E00FA4E00C71CDC /* OpenADK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CC95862E00FA4E00C71CDC /* OpenADK.framework */; };
+		C4CC95882E00FA4E00C71CDC /* OpenADK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C4CC95862E00FA4E00C71CDC /* OpenADK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C4CC95892E00FA4E00C71CDC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C4CC95882E00FA4E00C71CDC /* OpenADK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		C4CC95772E00FA3500C71CDC /* DummyBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DummyBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4CC95862E00FA4E00C71CDC /* OpenADK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OpenADK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -23,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4CC95872E00FA4E00C71CDC /* OpenADK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -33,6 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				C4CC95792E00FA3500C71CDC /* DummyBrowser */,
+				C4CC95852E00FA4E00C71CDC /* Frameworks */,
 				C4CC95782E00FA3500C71CDC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -45,6 +67,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		C4CC95852E00FA4E00C71CDC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C4CC95862E00FA4E00C71CDC /* OpenADK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -55,6 +85,7 @@
 				C4CC95732E00FA3500C71CDC /* Sources */,
 				C4CC95742E00FA3500C71CDC /* Frameworks */,
 				C4CC95752E00FA3500C71CDC /* Resources */,
+				C4CC95892E00FA4E00C71CDC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

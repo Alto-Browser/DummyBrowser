@@ -1,8 +1,9 @@
 //
 
 import SwiftUI
+import OpenADK
 
-struct ContentView: View {
+struct BrowserView: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -12,8 +13,4 @@ struct ContentView: View {
         }
         .padding()
     }
-}
-
-#Preview {
-    ContentView()
 }

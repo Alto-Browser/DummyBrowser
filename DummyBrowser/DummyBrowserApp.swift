@@ -28,9 +28,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         print("App Launched")
+        
+        // creates a window config
         var windowConfig = DefaultWindowConfiguration()
+        // sets the default browser window view to BrowserView()
         windowConfig.setView(BrowserView())
         
+        // tells the window manager to use that window config
         windowManager.configuration = windowConfig
         
         windowManager.createWindow(tabs: [])

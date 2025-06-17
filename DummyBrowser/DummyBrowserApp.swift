@@ -28,7 +28,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ notification: Notification) {
         print("App Launched")
+        var windowConfig = DefaultWindowConfiguration()
+        windowConfig.setView(BrowserView())
         
-        windowManager
+        windowManager.configuration = windowConfig
+        
+        windowManager.createWindow(tabs: [])
     }
 }

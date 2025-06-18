@@ -15,7 +15,11 @@ struct BrowserView: View {
             HStack {
                 if let tabs = state?.currentSpace?.localLocations[0].tabs {
                     ForEach(Array(tabs.enumerated()), id: \.element.id) { index, tabItem in
-                        Rectangle()
+                        Button {
+                            state?.currentSpace?.currentTab =  Alto.shared.getTab(id: tabItem.id)
+                        } label: {
+                            Text("tab")
+                        }
                     }
                 }
                 
@@ -34,7 +38,9 @@ struct BrowserView: View {
                     ForEach(Array((currentContent.enumerated())), id: \.element.id) { index, content in
                         AnyView(content.returnView())
                     }
-                    
+                } else {
+                    // With No WebView Input it just displays a material
+                    NSWebView()
                 }
                 Spacer()
             }

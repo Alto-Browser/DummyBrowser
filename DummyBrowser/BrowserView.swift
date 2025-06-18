@@ -9,9 +9,6 @@ struct BrowserView: View {
     
     var body: some View {
         VStack {
-            Text(id.uuidString)
-            Text("\(state?.id.uuidString)")
-            
             HStack {
                 if let tabs = state?.currentSpace?.localLocations[0].tabs {
                     ForEach(Array(tabs.enumerated()), id: \.element.id) { index, tabItem in
@@ -29,7 +26,7 @@ struct BrowserView: View {
                         tabManager.createNewTab(location: "pinned")
                     }
                 } label: {
-                    Text("Traffic light buttons")
+                    Text("+")
                 }
             }
             

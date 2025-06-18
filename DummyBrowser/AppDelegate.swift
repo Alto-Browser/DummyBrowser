@@ -1,7 +1,3 @@
-//
-
-
-
 import SwiftUI
 import AppKit
 import OpenADK
@@ -29,8 +25,3 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         windowManager.createWindow(tabs: [])
     }
 }
-
-import Observation
-import WebKit
-import Observation
-import Combine

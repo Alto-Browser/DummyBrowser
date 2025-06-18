@@ -4,37 +4,41 @@ import SwiftUI
 import OpenADK
 
 struct BrowserView: View {
-    var state: any StateProtocol
-
-    var body: some View {
-        VStack {
-            if let state = state as? State2 {
-                Text(state.id.uuidString)
-            }
-            Button {
-                Alto.shared.windowManager.createWindow(tabs: [])
-            } label: {
-                Text("Traffic light buttons")
-            }
-            ColorChangingButtonView()
-        }
-        .padding()
-    }
-}
-
-
-struct ColorChangingButtonView: View {
-    @State var waffle: Bool = false
+    var state: (any StateProtocol)?
+    let id = UUID()
     
     var body: some View {
-        Button(action: {
-            waffle.toggle()
-        }) {
-            Text("Tap me!")
-                .padding()
-                .background(waffle ? Color.blue : Color.red)
-                .foregroundColor(.white)
-                .cornerRadius(8)
+        VStack {
+            Text(id.uuidString)
+            Text("\(state?.id.uuidString)")
+            
+            HStack {
+                if let tabs = state?.currentSpace?.localLocations[0].tabs {
+                    ForEach(Array(tabs.enumerated()), id: \.element.id) { index, tabItem in
+                        Rectangle()
+                    }
+                }
+                
+                Spacer()
+                Button {
+                    if let tabManager = state?.tabManager as? TabsManager {
+                        tabManager.createNewTab(location: "pinned")
+                    }
+                } label: {
+                    Text("Traffic light buttons")
+                }
+            }
+            
+            HStack {
+                if let currentContent = state?.currentContent {
+                    ForEach(Array((currentContent.enumerated())), id: \.element.id) { index, content in
+                        AnyView(content.returnView())
+                    }
+                    
+                }
+                Spacer()
+            }
         }
+        .padding()
     }
 }
